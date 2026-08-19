@@ -1,0 +1,93 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+
+@theme {
+  --font-display: 'Manrope', ui-sans-serif, sans-serif;
+  --font-body: 'Inter', ui-sans-serif, sans-serif;
+  --font-mono: 'Space Grotesk', ui-monospace, monospace;
+
+  --color-navy-950: #050C18;
+  --color-navy-900: #0A1B33;
+  --color-navy-800: #122A4C;
+  --color-navy-700: #1C3A63;
+  --color-navy-600: #2A4E7F;
+  --color-blue-400: #6C9BD1;
+  --color-blue-300: #9DC0E6;
+  --color-ink: #0B1F3A;
+  --color-paper: #F6F8FB;
+  --color-mist: #EAEFF6;
+  --color-gold-500: #C6A15B;
+  --color-gold-400: #D6B87A;
+  --color-gold-300: #E1C892;
+  --color-gold-200: #EFDFB8;
+  --color-white: #FFFFFF;
+
+  --shadow-soft: 0 20px 60px -20px rgba(10, 27, 51, 0.25);
+  --shadow-card: 0 10px 40px -12px rgba(10, 27, 51, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  overflow-x: clip;
+  position: relative;
+}
+
+::selection {
+  background: var(--color-gold-400);
+  color: var(--color-navy-950);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.tracking-wide-xl {
+  letter-spacing: 0.22em;
+}
+
+.container-page {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.25rem, 4vw, 4rem);
+  padding-right: clamp(1.25rem, 4vw, 4rem);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.bg-noise {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0);
+  background-size: 22px 22px;
+}
