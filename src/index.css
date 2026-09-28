@@ -1,93 +1,177 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
 
-@theme {
-  --font-display: 'Manrope', ui-sans-serif, sans-serif;
-  --font-body: 'Inter', ui-sans-serif, sans-serif;
-  --font-mono: 'Space Grotesk', ui-monospace, monospace;
+@layer base {
+  :root {
+    --color-rs-red: #DB0303;
+    --color-rs-red-dark: #B30000;
+    --color-rs-red-light: #FF2E2E;
+    --color-gold: #C79A45;
+    --color-gold-light: #DFB35F;
+    --color-slate-dark: #0F172A;
+  }
 
-  --color-navy-950: #050C18;
-  --color-navy-900: #0A1B33;
-  --color-navy-800: #122A4C;
-  --color-navy-700: #1C3A63;
-  --color-navy-600: #2A4E7F;
-  --color-blue-400: #6C9BD1;
-  --color-blue-300: #9DC0E6;
-  --color-ink: #0B1F3A;
-  --color-paper: #F6F8FB;
-  --color-mist: #EAEFF6;
-  --color-gold-500: #C6A15B;
-  --color-gold-400: #D6B87A;
-  --color-gold-300: #E1C892;
-  --color-gold-200: #EFDFB8;
-  --color-white: #FFFFFF;
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color: #0F172A;
+    background-color: #FFFFFF;
+  }
 
-  --shadow-soft: 0 20px 60px -20px rgba(10, 27, 51, 0.25);
-  --shadow-card: 0 10px 40px -12px rgba(10, 27, 51, 0.18);
-}
+  h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  }
 
-* {
-  box-sizing: border-box;
-}
+  .font-serif-display {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background-color: var(--color-paper);
-  color: var(--color-ink);
-  font-family: var(--font-body);
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-
-#root {
-  overflow-x: clip;
-  position: relative;
-}
-
-::selection {
-  background: var(--color-gold-400);
-  color: var(--color-navy-950);
-}
-
-.font-display {
-  font-family: var(--font-display);
-}
-
-.font-mono {
-  font-family: var(--font-mono);
-}
-
-.tracking-wide-xl {
-  letter-spacing: 0.22em;
-}
-
-.container-page {
-  max-width: 1440px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: clamp(1.25rem, 4vw, 4rem);
-  padding-right: clamp(1.25rem, 4vw, 4rem);
-}
-
-.text-balance {
-  text-wrap: balance;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
   }
 }
 
-.reveal-up {
-  opacity: 0;
-  transform: translateY(28px);
+/* Custom smooth scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FFF5F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #FCA5A5;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #DB0303;
 }
 
-.bg-noise {
-  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0);
-  background-size: 22px 22px;
+/* Infinite Marquee Animations for University Logos */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 85s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-reverse 85s linear infinite;
+}
+
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+.animate-marquee-slow {
+  display: flex;
+  width: max-content;
+  animation: marquee 95s linear infinite;
+}
+
+.animate-marquee-slow:hover {
+  animation-play-state: paused;
+}
+
+.animate-marquee-slow-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-reverse 95s linear infinite;
+}
+
+.animate-marquee-slow-reverse:hover {
+  animation-play-state: paused;
+}
+
+.animate-float {
+  animation: float-slow 4s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 5s ease-in-out infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}
+
+/* Glassmorphism & Red Theme utilities */
+.glass-white {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(219, 3, 3, 0.12);
+}
+
+.glass-red {
+  background: rgba(219, 3, 3, 0.05);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(219, 3, 3, 0.15);
+}
+
+.red-glow {
+  box-shadow: 0 10px 30px -10px rgba(219, 3, 3, 0.25);
+}
+
+.red-glow-lg {
+  box-shadow: 0 20px 40px -15px rgba(219, 3, 3, 0.35);
 }
